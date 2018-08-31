@@ -1,0 +1,23 @@
+            <h1>Authorization form</h1>
+            <form [formGroup]='userForm' (ngSubmit)='onSubmit()'>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input  class="form-control" id="email" #email (keyup)='getEmail(email.value)' placeholder="Enter email" formControlName="email">
+                  <div *ngIf="formErrors.email" class="alert alert-danger">
+                    {{ formErrors.email }}
+          </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input class="form-control" id="password" #password (keyup)='getPassword(password.value)' placeholder="Password"  formControlName="password">
+                  <div *ngIf="formErrors.password" class="alert alert-danger">
+                    {{ formErrors.password }}
+                  </div>
+                </div>
+                <button type="button" (click)='onSubmit()' class="btn btn-default"[disabled]="!userForm.valid">Login</button>
+               
+                <div *ngIf="message; then content else other">You need authorization </div>
+                <ng-template #content><h1>Validation success!</h1></ng-template>  
+                <ng-template #other><h1>Validation fail!</h1></ng-template>  
+                
+             </form>

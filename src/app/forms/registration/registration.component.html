@@ -1,0 +1,59 @@
+<h1 class="bradscrum">Registration form</h1>
+<form [formGroup]='userForm' (ngSubmit)='onSubmit()'>
+		<div class="form-group">
+			<label for="forname">Name</label>
+
+			<input id="forname" type="text" class="form-control"
+                formControlName="name" required #name (keyup)='onKeyname(name.value)'/>
+
+			<div *ngIf="formErrors.name" class="alert alert-danger">
+				{{ formErrors.name }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="forsurname">Surname</label>
+
+			<input id="forsurname" type="text" class="form-control"
+                formControlName="surname" required #surname (keyup)='onKeysurname(surname.value)'/>
+
+			<div *ngIf="formErrors.surname" class="alert alert-danger">
+				{{ formErrors.surname }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="foremail">Email</label>
+
+			<input id="foremail" class="form-control"
+                formControlName="email" required #mail (keyup)='onKeymail(mail.value)'/>
+
+			<div *ngIf="formErrors.email" class="alert alert-danger">
+                {{ formErrors.email }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="forpassword">Password</label>
+
+			<input   id="forpassword" class="form-control"
+                formControlName="password" required appNotuse (ctrlC)="onCtrlC()" #password (keyup)='onKeypassword(password.value)' />
+
+			<div *ngIf="formErrors.password" class="alert alert-danger">
+                {{ formErrors.password }}
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="confirmpassword">Confirm password</label>
+
+			<input  id="confirmpassword" class="form-control" 
+                formControlName="confirmpassword" required  appNotuse (ctrlV)="onCtrlV()" />
+
+		   <div *ngIf="formErrors.confirmpassword " class="alert alert-danger" validator >
+                {{ formErrors.confirmpassword  }}
+			</div> 
+			
+		</div>
+		<button type="submit" class="btn btn-default" [disabled]="!userForm.valid">Submit</button>
+	</form>

@@ -14,8 +14,8 @@
     "deprecation": {
       "severity": "warn"
     },
-    "eofline": true,
-    "forin": true,
+    "eofline": false,
+    "forin": false,
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -76,7 +76,7 @@
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
-      true,
+      false,
       "check-open-brace",
       "check-catch",
       "check-else",
@@ -93,7 +93,7 @@
       "always"
     ],
     "triple-equals": [
-      true,
+      false,
       "allow-null-check"
     ],
     "typedef-whitespace": [
@@ -109,7 +109,7 @@
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",
